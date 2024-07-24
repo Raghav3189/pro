@@ -1,0 +1,307 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    height: auto;
+}
+
+header.sticky {
+    background-color: white;
+    /* padding: 12px 12%; */
+    color: black;
+}
+
+header.sticky .navbar a,
+header.sticky .logo,
+header.sticky .main .dropdown .ri-user-fill {
+    color: black;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 15px 12%;
+    transition: all 0.50s ease;
+    background-color: white;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: black;
+}
+
+.navlis .navbar {
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.navlis .navbar a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin: 0px 15px;
+    transition: all 0.50s ease;
+    color: black;
+}
+
+.navlis .navbar a:hover,
+.logo:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+}
+
+#menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.ri-user-fill {
+    font-size: 25px;
+    color: black;
+}
+
+.main .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.main .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    /* box-shadow: opx 8px 16px 0px rgba(0,0,0,0.2); */
+    width: 100px;
+    right: 0;
+
+}
+
+.main .dropdown .dropdown-content a {
+    display: block;
+    color: black;
+    padding: 5px 7px;
+    text-align: center;
+}
+
+.main .dropdown .dropdown-content a:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+
+@media (max-width:890px) {
+    header {
+        padding: 12px 12%;
+    }
+
+    .navbar a {
+        padding: 5px 0;
+        margin: 0 20px;
+        color: black;
+    }
+}
+
+@media (max-width:1104px) {
+    #menu-icon {
+        display: block;
+        padding-left: 10px;
+        color: black;
+        margin-bottom: 0px;
+    }
+
+    header.sticky {
+        background: white;
+        /* padding: 12px 2%; */
+        color: black;
+    }
+
+    header.sticky #menu-icon {
+        color: black;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 160px;
+        height: auto;
+        background-color: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all 0.50s ease;
+    }
+
+    .navlis .navbar a {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: black;
+    }
+
+    .navbar a:hover {
+        color: blue;
+    }
+
+    .navbar.open {
+        right: 2%;
+    }
+}
+
+.mainco {
+    /* border: 2px red solid; */
+    width: 100%;
+    height: auto;
+    /* background-color: #f4f4f4; */
+    margin-top: 90px;
+}
+
+.login-container {
+    /* border: 2px red solid; */
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 84%;
+    margin-left: 100px;
+    margin-top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container .left-container {
+    /* border: 2px green solid; */
+    width: 55%;
+    background: url('/media/app1/images/loginimage1.jpg') no-repeat center center/cover;
+}
+
+.login-container .right-container {
+    /* border: 2px blue solid; */
+    width: 45%;
+    padding: 10px 45px;
+    background-color: white;
+}
+
+.login-container .right-container h2 {
+    text-align: center;
+    color: #6b66f6;
+    margin-top: 25px;
+}
+
+.login-container .right-container h4 {
+    text-align: center;
+    color: #25274D;
+    margin-top: 25px;
+    font-size: medium;
+}
+
+.login-container .right-container h4 a {
+    color: green;
+}
+
+.login-container .right-container .usernamelabel {
+    display: block;
+    font-weight: bold;
+    color: #6b66f6;
+    margin-top: 30px;
+}
+
+.login-container .right-container .passwordlabel {
+    display: block;
+    font-weight: bold;
+    color: #6b66f6;
+    margin-top: 5px;
+}
+
+.login-container .right-container input,
+select {
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+    transition: border-color 0.3s;
+    border-radius: 4px;
+}
+
+.login-container .right-container input:focus {
+    border-color: #6b66f6;
+    outline: none;
+    box-shadow: 0 0 5px #7d79f0;
+}
+
+.login-container .right-container .ll {
+    text-align: center;
+}
+.login-container .right-container .ll button {
+    width: 90px;
+    padding: 9px;
+    background: #6b66f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 20px;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.login-container .right-container button:hover {
+    background: #7570f7;
+}
+
+.messagecono {
+    /* border: 2px red solid; */
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    color: orange;
+}
+@media(max-width:1000px){
+    .login-container .right-container{
+        width: 60%;
+    }
+}
+@media(max-width:800px){
+    .login-container{
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto;
+    }
+}
+@media(max-width:600px){
+    .login-container .right-container{
+        width: 100%;
+        padding: 10px 10px;
+    }
+    .login-container .left-container{
+        display: none;
+    }
+}

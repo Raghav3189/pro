@@ -1,0 +1,351 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    height: auto;
+}
+
+header.sticky {
+    background-color: white;
+    /* padding: 12px 12%; */
+    color: black;
+}
+
+header.sticky .navbar a,
+header.sticky .logo,
+header.sticky .main .dropdown .ri-user-fill {
+    color: black;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 15px 12%;
+    transition: all 0.50s ease;
+    background-color: white;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: black;
+}
+
+.navlis .navbar {
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.navlis .navbar a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin: 0px 15px;
+    transition: all 0.50s ease;
+    color: black;
+}
+
+.navlis .navbar a:hover,
+.logo:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+}
+
+#menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.ri-user-fill {
+    font-size: 25px;
+    color: black;
+}
+
+.main .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.main .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    /* box-shadow: opx 8px 16px 0px rgba(0,0,0,0.2); */
+    width: 100px;
+    right: 0;
+
+}
+
+.main .dropdown .dropdown-content a {
+    display: block;
+    color: black;
+    padding: 5px 7px;
+    text-align: center;
+}
+
+.main .dropdown .dropdown-content a:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+
+@media (max-width:890px) {
+    header {
+        padding: 12px 12%;
+    }
+
+    .navbar a {
+        padding: 5px 0;
+        margin: 0 20px;
+        color: black;
+    }
+}
+
+@media (max-width:1104px) {
+    #menu-icon {
+        display: block;
+        padding-left: 10px;
+        color: black;
+        margin-bottom: 0px;
+    }
+
+    header.sticky {
+        background: white;
+        /* padding: 12px 2%; */
+        color: black;
+    }
+
+    header.sticky #menu-icon {
+        color: black;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 160px;
+        height: auto;
+        background-color: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all 0.50s ease;
+    }
+
+    .navlis .navbar a {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: black;
+    }
+
+    .navbar a:hover {
+        color: blue;
+    }
+
+    .navbar.open {
+        right: 2%;
+    }
+}
+
+.cheading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cheading p{
+    margin-top: 95px;
+    margin-bottom: 30px;
+    font-size: 35px;
+    color: red;
+}
+
+.cartcontainer {
+    max-width: 700px;
+    margin: 0px auto;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.cartcontainer .hcart{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.cartcontainer .itemcontainer .tablecon {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cartcontainer .itemcontainer .tablecon .tableheading th {
+    padding: 10px 0px;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+.cartcontainer .itemcontainer .tablecon .but{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.cartcontainer .itemcontainer .tablecon .but a .lavda{
+    width: 90px;
+    padding: 9px;
+    background: #6b66f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 20px;
+    outline: none;
+    margin-bottom: 20px;
+}
+.cartcontainer .itemcontainer .tablecon .cart-item td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.cartcontainer .itemcontainer .tablecon .cart-item .item-image .imgpos{
+    height: 70px;
+    width: 100px;
+    border-radius: 13px;
+}
+
+.cartcontainer .itemcontainer .tablecon .total-row .total-label{
+    padding: 10px 0px;
+    text-align: end;
+}
+.cartcontainer .itemcontainer .tablecon .total-row .total-price{
+    text-align: center;
+}
+.cartcontainer .itemcontainer .but a button{
+    padding: 9.5px 9.5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+    text-align: center;
+    outline: none;
+    background-color: white;
+    color: green; 
+    border: 2px solid green; 
+    margin-right: 5px;
+}
+.cartcontainer .itemcontainer .but{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cartcontainer .itemcontainer .but a button:hover{
+    background-color: green; 
+    color: white;
+}
+.allcontainer{
+    max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+  }
+  .allcontainer .checkout-container .hcart{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: red;
+      margin-bottom: 20px;
+  }
+  .allcontainer .checkout-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.allcontainer .checkout-container label {
+  padding-left: 85px;
+  margin: 10px 0;
+  width: 100%;
+  text-align: left;
+}
+.allcontainer .checkout-container input, select {
+  width: 75%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+.allcontainer .checkout-container input:focus, select:focus {
+border-color: #4caf50;
+outline: none; 
+box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+.allcontainer .checkout-container button {
+  width: 120px;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  margin-top: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.allcontainer .checkout-container button:hover {
+  background-color: #45a049;
+}
+.allcontainer .cartcontainer{
+  width: 35%;
+  margin: 50px 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.allcontainer .cartcontainer h2{
+  text-align: center;
+  font-weight: bold;
+}
+
+.allcontainer .cartcontainer #itemcontainer
+{
+  margin: 20px;
+}

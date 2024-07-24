@@ -1,0 +1,333 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    height: auto;
+}
+
+header.sticky {
+    background-color: white;
+    /* padding: 12px 12%; */
+    color: black;
+}
+
+header.sticky .navbar a,
+header.sticky .logo,
+header.sticky .main .dropdown .ri-user-fill {
+    color: black;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 15px 12%;
+    transition: all 0.50s ease;
+    background-color: white;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: black;
+}
+
+.navlis .navbar {
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.navlis .navbar a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin: 0px 15px;
+    transition: all 0.50s ease;
+    color: black;
+}
+
+.navlis .navbar a:hover,
+.logo:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+}
+
+#menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.ri-user-fill {
+    font-size: 25px;
+    color: black;
+}
+
+.main .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.main .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    /* box-shadow: opx 8px 16px 0px rgba(0,0,0,0.2); */
+    width: 100px;
+    right: 0;
+
+}
+
+.main .dropdown .dropdown-content a {
+    display: block;
+    color: black;
+    padding: 5px 7px;
+    text-align: center;
+}
+
+.main .dropdown .dropdown-content a:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+
+@media (max-width:890px) {
+    header {
+        padding: 12px 12%;
+    }
+
+    .navbar a {
+        padding: 5px 0;
+        margin: 0 20px;
+        color: black;
+    }
+}
+
+@media (max-width:1104px) {
+    #menu-icon {
+        display: block;
+        padding-left: 10px;
+        color: black;
+        margin-bottom: 0px;
+    }
+
+    header.sticky {
+        background: white;
+        /* padding: 12px 2%; */
+        color: black;
+    }
+
+    header.sticky #menu-icon {
+        color: black;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 160px;
+        height: auto;
+        background-color: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all 0.50s ease;
+    }
+
+    .navlis .navbar a {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: black;
+    }
+
+    .navbar a:hover {
+        color: blue;
+    }
+
+    .navbar.open {
+        right: 2%;
+    }
+}
+
+.maincontainer {
+    margin-top: 90px;
+}
+
+.maincontainer .container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+.maincontainer .container .left-box {
+    float: left;
+    width: 40%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    color: #5a5a5a;
+}
+
+.maincontainer .container .right-box {
+    float: left;
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.maincontainer .container .right-box h2 {
+    text-align: center;
+    color: #ff8c00;
+}
+
+.maincontainer .container .right-box label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.maincontainer .container .right-box input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.maincontainer .container .right-box input:focus,
+textarea:focus {
+    border-color: #4caf50;
+}
+
+.maincontainer .container .right-box textarea {
+    height: 120px;
+}
+.maincontainer .container .right-box .ll{
+    text-align: center;
+}
+.maincontainer .container .right-box .ll button {
+    background-color: #ff8c00;
+    color: #fff;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    outline: none;
+}
+
+.maincontainer .container .right-box button:hover {
+    background-color: #e07e00;
+}
+
+.maincontainer .container .left-box .map-container {
+    height: 300px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.maincontainer .container .left-box .map-label {
+    z-index: 2;
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+}
+
+.maincontainer .container .left-box .map-label a {
+    z-index: 2;
+    color: #4caf50;
+    text-decoration: none;
+}
+
+.maincontainer .container .left-box .map-label a:hover {
+    text-decoration: underline;
+}
+
+.maincontainer .container .left-box .contact-info {
+    margin-bottom: 20px;
+}
+
+.maincontainer .container .left-box .contact-info .l h3 {
+    text-align: center;
+    color: green;
+}
+
+.maincontainer .container .left-box .contact-info .lab {
+    color: orange;
+}
+
+.maincontainer .container .left-box .contact-info label {
+    font-weight: normal;
+    color: #666;
+}
+
+.maincontainer .container .left-box .contact-info p {
+    margin: 5px 0;
+    color: #444;
+}
+
+.maincontainer .container .left-box .symbol {
+    margin-right: 5px;
+}
+
+.maincontainer .container .left-box .pin-symbol {
+    color: #e07e00;
+}
+
+.maincontainer .container .left-box .phone-symbol {
+    color: #4caf50;
+}
+@media(max-width:700px){
+    .maincontainer .container{
+        flex-direction: column;
+    }
+    .maincontainer .container .left-box{
+        width: 100%;
+    }
+    .maincontainer .container .right-box{
+        width: 100%;
+    }
+}

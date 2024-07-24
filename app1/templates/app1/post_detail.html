@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.blog_title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .fa-regular,
+        .fa-solid {
+            color: rgb(250, 58, 58);
+            transition: color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            font-size: 23px;
+        }
+    </style>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'app1/postdetail1.css' %}">
+
+<body>
+    <div class="container">
+        <div class="title h" style="color: red; font-size: 22px;">{{ post.blog_title }}</div>
+        <div class="blogimage h"><img src="/media/{{post.blog_image}}" alt="img" style="height: 280px; width: 500px;">
+        </div>
+        <div class="time h">{{ post.blog_time }}</div>
+        <div class="leftbox h">
+            <span><img src="/media/{{post.blog_author_image}}" alt="img"
+                    style="height: 50px; width:50px; border-radius: 50%;"></span>
+            <span class="name">Blog Posted By:{{ post.blog_author }}</span>
+        </div>
+        <div class="content h">
+            <p>{{ post.blog_content }}</p>
+        </div>
+        <form id="like-form" class="h like" method="post">
+            {% csrf_token %}
+            {% if like_status == "no" %}
+            <button type="submit" style="background-color: white; border:none"><i id="heart"
+                    class="fa-regular fa-heart"></i></button>
+            {% else %}
+            <button type="submit" style="background-color:white; border: none;"><i id="heart"
+                    class="fa-solid fa-heart"></i></button>
+            {% endif %}
+            <span id="like-count" style="margin-left: 10px;">{{ like_cnt }} Likes</span>
+        </form>
+        <div class="h" style="color: orange; font-size: 17px;">Add a Comment Here</div>
+        <form id="comment-form" class="h commen" method="post">
+            {% csrf_token %}
+            <textarea name="comment" id="comment" placeholder="comment here.." required></textarea>
+            <button type="submit" class="lavs">Post</button>
+        </form>
+        <div class="h" style="font-size: 25px; color: green;">Comments</div>
+        <div id="comments-section" class="h">
+            {% for comment in comments %}
+            <div class="comment">
+                <div class="image"><img src="/media/{{comment.comment_image}}" alt=""
+                        style="height: 40px; width: 40px; border-radius: 50%; "><span
+                        style="margin-left: 20px;">{{comment.commenter}}</span></div>
+                <div class="content" style="margin-left: 62px;">{{ comment.content }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#comment-form').submit(function (e) {
+                e.preventDefault();
+                var comment = $('#comment').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/app1/post/{{ post.pk }}/',
+                    data: {
+                        'comment': comment,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        'action': 'comment'
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success) {
+                            $('#comments-section').prepend('<div class="comment"><div class="image"><img src="' + response.comment_image + '" alt="" style="height: 40px; width: 40px; border-radius: 50%; "><span style="margin-left: 20px;">' + response.commenter + '</span></div><div class="content" style="margin-left: 62px;">' + response.comment + '</div></div>');
+                            $('#comment').val('');
+                        } else {
+                            console.log("Error: Comment was not successfully posted.");
+                        }
+                    },
+                    error: function (xhr, errmsg, err) {
+                        console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                });
+            });
+        });
+
+
+
+        $(document).ready(function () {
+            $('#like-form').submit(function (e) {
+                e.preventDefault();
+                var btn = document.getElementById("heart");
+                var likeCountElement = document.getElementById("like-count");
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/app1/post/{{ post.pk }}/',
+                    data: {
+                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        // 'action': 'like_toggle'
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            btn.classList.toggle("clicked");
+                            if (response.liked) {
+                                btn.classList.add("fa-solid");
+                                btn.classList.remove("fa-regular");
+                            } else {
+                                btn.classList.add("fa-regular");
+                                btn.classList.remove("fa-solid");
+                            }
+                            likeCountElement.innerText = response.like_count + " Likes";
+                        } else {
+                            console.log("Error: Comment was not successfully posted.");
+                        }
+                    },
+                    error: function (xhr, errmsg, err) {
+                        console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                });
+
+            });
+        });
+
+
+        const textarea = document.querySelector("textarea");
+        textarea.addEventListener("keyup", e => {
+            let scheight = e.target.scrollHeight;
+            textarea.style.height = "auto";
+            textarea.style.height = `${scheight}px`;
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,565 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    height: auto;
+}
+
+header.sticky {
+    background-color: white;
+    /* padding: 12px 12%; */
+    color: black;
+}
+
+header.sticky .navbar a,
+header.sticky .logo,
+header.sticky .main .dropdown .ri-user-fill {
+    color: black;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 15px 12%;
+    transition: all 0.50s ease;
+    background-color: white;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: black;
+}
+
+.navlis .navbar {
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.navlis .navbar a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin: 0px 15px;
+    transition: all 0.50s ease;
+    color: black;
+}
+
+.navlis .navbar a:hover,
+.logo:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+}
+
+#menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.ri-user-fill {
+    font-size: 25px;
+    color: black;
+}
+
+.main .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.main .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 100px;
+    right: 0;
+
+}
+
+.main .dropdown .dropdown-content a {
+    display: block;
+    color: black;
+    padding: 5px 7px;
+    text-align: center;
+}
+
+.main .dropdown .dropdown-content a:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+
+@media (max-width:890px) {
+    header {
+        padding: 12px 12%;
+    }
+
+    .navbar a {
+        padding: 5px 0;
+        margin: 0 20px;
+        color: black;
+    }
+}
+
+@media (max-width:1104px) {
+    #menu-icon {
+        display: block;
+        padding-left: 10px;
+        color: white;
+        margin-bottom: 0px;
+    }
+
+    header.sticky {
+        background: white;
+        padding: 12px 2%;
+        color: black;
+    }
+
+    header.sticky #menu-icon {
+        color: black;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 160px;
+        height: auto;
+        background-color: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all 0.50s ease;
+    }
+
+    .navlis .navbar a {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: black;
+    }
+
+    .navbar a:hover {
+        color: blue;
+    }
+
+    .navbar.open {
+        right: 2%;
+    }
+}
+
+.slidercontainer {
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 90px;
+}
+
+.slidercontainer .slider {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    /* Half of the viewport height */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slidercontainer .slider .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.slidercontainer .slider .slide .image-container,
+.details-container {
+    width: 50%;
+}
+
+.slidercontainer .slider .slide .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure the image covers the entire container */
+}
+
+.slidercontainer .slider .slide .details-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slidercontainer .slider .slide .details-container h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.slidercontainer .slider .slide .details-container p {
+    color: #555;
+    margin-bottom: 0px;
+}
+
+.slidercontainer .slider .slide .special-offer {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff8c00;
+    margin-bottom: 10px;
+}
+
+
+.slidercontainer .prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.slidercontainer .prev {
+    left: 0;
+}
+
+.slidercontainer .next {
+    right: 0;
+}
+
+.order-now-button {
+    background-color: red;
+    color: #fff;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+}
+
+.order-now-button:hover {
+    background-color: rgb(250, 17, 17);
+}
+
+@media (max-width:600px) {
+    .slidercontainer .slider .slide .image-container,
+.details-container {
+    width: 100%;
+    height: 50%;
+}
+
+    .slide {
+        flex-direction: column;
+    }
+
+    .next {
+        padding: 6px;
+    }
+
+    .prev {
+        padding: 6px;
+    }
+
+    .details-container p {
+        margin-bottom: 0px;
+    }
+
+    .details-container h3 {
+        margin-bottom: 5px;
+    }
+
+    .special-offer {
+        margin-bottom: 5px;
+    }
+
+    .details-container {
+        padding: 10px;
+    }
+
+    .order-now-button {
+        padding: 8px 8px;
+    }
+    .searchcon .search input,
+select{
+    margin-right: 0px;
+
+}
+}
+
+
+
+.first .row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: left;
+    margin: 0px 30px;
+}
+
+.first .row .con1 {
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.first .row .con1 img {
+    padding: 0px;
+    border-radius: 10px;
+}
+.first .row .con1 .name,.price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+}
+
+.first .row .con1 .addtocart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:12px 5px;
+}
+
+.first .row .con1 .addtocart .but,
+.viewbutton {
+    background-color:orange;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    text-align: center;
+    outline: none;
+    margin: 0px 10px;
+}
+
+.first .row .con1 .addtocart .plusclass,.minusclass{
+    background-color:orange;
+    color: #fff;
+    padding: 5px 7px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    text-align: center;
+    outline: none;
+    margin: 0px 10px;
+}
+
+@media(max-width:600px) {
+    .popup-content {
+        width: 90%;
+    }
+}
+
+@media(max-width:800px){
+    .popup-content {
+        width: 80%;
+    }
+}
+
+.foodheading{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.foodheading p{
+    font-size: 35px;
+    font-weight: bold;
+    color: red;
+}
+
+
+.searchcon{
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin:10px 0px;
+    top: 0;
+    z-index: 50;
+    background-color:#fff;
+}
+
+.searchcon .search{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.searchcon .search input,
+select {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+
+.searchcon .search input:focus,
+select:focus {
+    border-color: #ff0000; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+footer #newsletter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.searchcon .search button {
+    padding: 9.5px 9.5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    text-align: center;
+    outline: none;
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    margin-right: 5px;
+}
+
+.searchcon .search button:hover {
+    background-color: red;
+    color: white;
+}
+
+
+
+.searchcon .dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+.searchcon .dropdown2 .dropdown-content2{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.searchcon .dropdown2 .dropdown-content2 a {
+    color: black;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.searchcon .dropdown2 .dropdown-content2 a:hover {
+    background-color: #f1f1f1;
+}
+
+.searchcon .dropdown2:hover .dropdown-content {
+    display: block;
+}
+
+.searchcon .dropdown2 button{
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(76, 75, 75); 
+    padding: 6px 6px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+    outline: none;
+}
+
+.checkout a button{
+    color: #ff8c00;
+}
+
+#discountbtn {
+    background-color: white;
+    color: black;
+    border: 2px solid black; 
+    padding: 6px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+    outline: none;
+}
+
+#discountbtn:hover {
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .searchcon {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .searchcon .discount, .searchcon .dropdown2, .searchcon .search {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .searchcon .dropdown2 {
+        text-align: center;
+    }
+
+    .searchcon .dropdown2 .dropdown-content2 {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

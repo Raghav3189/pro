@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #fff;
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    height: auto;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 1000px;
+    margin: 30px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.container .h{
+    margin-bottom: 30px;
+}
+
+
+
+
+
+.container #comment-form button {
+    padding: 11px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    text-align: center;
+    outline: none;
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    margin-left: 6px;
+}
+
+.container #comment-form button:hover {
+    background-color: red;
+    color: white;
+}
+
+.container form textarea{
+    width: 500px;
+    height: 43px;
+    padding: 12px;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+    border-color: #bfbfbf;
+}
+textarea:is(:focus, :valid){
+    border-color: #4671EA;
+}
+.container form textarea input:focus,
+select:focus {
+    border-color: #ff0000;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+.container form textarea::-webkit-scrollbar{
+    width: 0px;
+}
+
+.container .leftbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container .leftbox span{
+    margin: 0px 20px;
+}
+
+.container .like{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container .commen{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container .h .comment .image{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #4671EA;
+}
+.container .h .comment{
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1102px) {
+    .container {
+        width: fit-content;
+    }
+}
+

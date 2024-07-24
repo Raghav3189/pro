@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Sora:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Quicksand:wght@500&family=Sora:wght@600&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+      <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'app1/homel1.css' %}">
+
+<body>
+    <header>
+        <a href="home" class="logo">FoodZone</a>
+        <div class="navlis">
+            <ul class="navbar">
+                <li><a href="home">Home</a></li>
+                <li><a href="home#about">About</a></li>
+                <li><a href="blog">Blog</a></li>
+                <li><a href="contac">Contact</a></li>
+                <li><a href="feedback">Feedback</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown()"><i class="ri-user-fill"></i></a>
+                <div class="dropdown-content" id="mydropdown">
+                    <a href="login">login</a>
+                    <a href="logout">logout</a>
+                    <a href="signup">signin</a>
+                </div>
+            </div>
+        </div>
+        <div class="cartbutt">
+            <button type="button" class="btn btn-primary" id="popcart" data-placement="bottom" data-toggle="popover"
+                title="Cart Items" data-content=""><i class="fa fa-shopping-cart" style="font-size:17px;color:white"></i></button>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    <section class="banner">
+        <div class="con">
+            <p class="title">Welcome to FoodZone</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio fuga incidunt,
+                mollitia deserunt aliquam omnis? Soluta ea exercitationem odit vero itaque,</p>
+            <p>expedita accusantium at laudantium, molestias ipsa sapicusandae a adipisci f
+                acere temporibus veritatis, quasi amet nam incidunt esse quam doloribu</p>
+            <p>atem quo error quibusdam recusandae magni, consequatur similique.</p>
+        </div>
+        <div class="butt">
+            <a href="order"><button class="k" id="menu">OrderNow</button></a>
+            <a href="booking"><button class="m">Book A Table</button></a>
+        </div>
+    </section>
+    <div class="con" id="about">
+        <div class="matter">
+            <div class="label">About Us</div>
+            <div class="parag">
+                <p class="para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus vel qui
+                    dem excepturi saepe id quo maiores perferendis ullam. Harum, commodi. Minus volupta
+                    tum quidem autem iste commodi, et assumenda qui quas vitae nesciunt maxime tempora d
+                    istinctio culpa, doloribus dolores ea consequuntur. Lorem ipsum dolor sit amet, consect
+                    etur adipisicing elit. Distinctio sed consequatur minus, inventore deserunt architecto r
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus vel qui
+                    dem excepturi saepe id quo maiores perferendis ullam. Harum, commodi. Minus volupta
+                    tum quidem autem iste commodi, et assumenda qui quas vitae nesciunt maxime tempora d
+                    istinctio culpa, doloribus dolores ea consequuntur. Lorem ipsum dolor sit amet, consect
+                    etur adipisicing elit. Distinctio sed consequatur minus, inventore deserunt architecto r
+                    eiciendis a facilis similique? Eligendi soluta rerum placeat temporibus, cumque id? Odio
+                    reiciendis accusantium quae.
+                    Lorem ipsum, dolor sit amet conur. Lorem ipsum dolor sit amet, consect
+                    etur adipisicing elit. Distinctio sed consequatur minus, inventore deserunt architecto r
+                    eiciendis a facilis similique? Eligendi soluta rerum placeat temporibus, cumque id? Odio
+                    reiciendis accusantium quae.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus vel qui
+                    dem excep Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione adipisci cumque delectus.</p>
+            </div>
+        </div>
+    </div>
+    <div class="featuresheading">
+        Our Key Features
+    </div>
+    <div class="hr">
+        Why Choose Us
+    </div>
+    <div class="featurescontainer">
+        <div class="container">
+            <div class="left-container">
+                <div class="row">
+                    <div class="inner-container">
+                        <h2>Fast Food Delivery</h2>
+                        <p>Experience quick and reliable fast food delivery services at your doorstep.</p>
+                    </div>
+                    <div class="inner-container">
+                        <h2>Best Quality Ingredients</h2>
+                        <p>Our dishes are crafted using the finest and best quality ingredients available.</p>
+                    </div>
+                    <div class="inner-container">
+                        <h2>Fresh Vegetables</h2>
+                        <p>We prioritize freshness by using locally sourced and fresh vegetables and meat.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="inner-container">
+                        <h2>Cozy Ambiance</h2>
+                        <p>Enjoy your meals in a cozy and inviting ambiance that enhances your dining experience.</p>
+                    </div>
+                    <div class="inner-container">
+                        <h2>Customized Menus</h2>
+                        <p>Explore our diverse range of dishes with customized menus to suit your taste and preferences.
+                        </p>
+                    </div>
+                    <div class="inner-container">
+                        <h2>Best Customer Service</h2>
+                        <p>Our team is dedicated to providing best customer service to make your visit memorable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="heading">
+        <div>Our Services</div>
+    </div>
+    <div class="servicecontainer">
+        <div class="containe">
+            <div class="f" id="first">
+                <div class="box">
+                    <img src="/media/app1/images/fooddelivery.jpg" alt="Image 1" style="width: 100%; height: 150px;">
+                    <h3>Food Delivery</h3>
+                    <p>Enjoy our delicious dishes delivered to your doorstep. Fast and reliable delivery service.</p>
+                </div>
+
+                <div class="box">
+                    <img src="/media/app1/images/catering.jpg" alt="Image 2" style="width: 100%; height: 150px;">
+                    <h3>Catering Services</h3>
+                    <p>Make your events memorable with our catering services. We cater to weddings, parties, and more.
+                    </p>
+                </div>
+            </div>
+            <div class="f" id="second">
+                <div class="box">
+                    <img src="/media/app1/images/Egg_Biryani.webp" alt="Image 3" style="width:100%; height: 150px;">
+                    <h3>Online Reservations</h3>
+                    <p>Book a table online and experience the best dining atmosphere. Reserve your spot now!</p>
+                </div>
+
+                <div class="box">
+                    <img src="/media/app1/images/specialevents.jpg" alt="Image 4" style="width: 100%; height: 150px;">
+                    <h3>Special Events</h3>
+                    <p>Celebrate special occasions with us. We offer special menus and arrangements for your events.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="heading" id="ourteam">
+        <div>OurTeam</div>
+    </div>
+    <div class="servicecontainer">
+        <div class="containe">
+            <div class="f" id="first">
+                <div class="box">
+                    <img src="/media/app1/images/chef1.jpg" alt="Chef 1" style="width:100%; height: 160px;">
+                    <h3>Chef Alice</h3>
+                    <p>With over 10 years of culinary experience, Chef Alice is known for her innovative approach to
+                        classic
+                        dishes.</p>
+                </div>
+
+                <div class="box">
+                    <img src="/media/app1/images/chef2.jpg" alt="Chef 2" style="width:100%; height: 160px;">
+                    <h3>Chef Bob</h3>
+                    <p>Chef Bob, a seasoned chef with a passion for flavors, crafts dishes that reflect his culinary
+                        expertise and creativity.</p>
+                </div>
+            </div>
+            <div class="f" id="second">
+                <div class="box">
+                    <img src="/media/app1/images/chef3.jpg" alt="Chef 3" style="width:100%; height: 160px;">
+                    <h3>Chef Charlie</h3>
+                    <p>Experience the culinary artistry of Chef Charlie, whose diverse background brings a unique twist
+                        to
+                        every recipe.</p>
+                </div>
+
+                <div class="box">
+                    <img src="/media/app1/images/chef4.jpg" alt="Chef 4" style="width:100%; height: 160px;">
+                    <h3>Chef David</h3>
+                    <p>Chef David's creations are a delightful fusion of global cuisines, creating a memorable dining
+                        experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="heading">
+        <div>Our Customer Reviews</div>
+    </div>
+    <div class="revbut">
+        <button class="prev-button"><</button>
+        <button class="next-button">></button>
+    </div>
+    <div class="slider">
+        <div class="slide">
+            <div class="imagediv"><img src="/media/app1/images/re3.jpg" alt="Food 1"></div>
+            <div class="name">
+                <h3>Emily Smith</h3>
+            </div>
+            <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </div>
+            <div class="review">
+                <p>Had an amazing dining experie.The food was delicious,the ambiance was cozy,and
+                    the service.Definitely coming back soon!</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="imagediv"><img src="/media/app1/images/review2.jpg" alt="Food 1"></div>
+            <div class="name">
+                <h3>Emily Smith</h3>
+            </div>
+            <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star nchecked"></span>
+                <span class="fa fa-star nchecked"></span>
+            </div>
+            <div class="review">
+                <p>Had an amazing dining experie.The food was delicious,the ambiance was cozy,and
+                    the service.Definitely coming back soon!</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="imagediv"><img src="/media/app1/images/re4.jpg" alt="Food 1"></div>
+            <div class="name">
+                <h3>Emily Smith</h3>
+            </div>
+            <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star nchecked"></span>
+            </div>
+            <div class="review">
+                <p>Had an amazing dining experie.The food was delicious,the ambiance was cozy,and
+                    the service.Definitely coming back soon!</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="imagediv"><img src="/media/app1/images/re5.jpg" alt="Food 1"></div>
+            <div class="name">
+                <h3>Emily Smith</h3>
+            </div>
+            <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </div>
+            <div class="review">
+                <p>Had an amazing dining experie.The food was delicious,the ambiance was cozy,and
+                    the service.Definitely coming back soon!</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="imagediv"><img src="/media/app1/images/re6.jpg" alt="Food 1"></div>
+            <div class="name">
+                <h3>Emily Smith</h3>
+            </div>
+            <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star nchecked"></span>
+            </div>
+            <div class="review">
+                <p>Had an amazing dining experie.The food was delicious,the ambiance was cozy,and
+                    the service.Definitely coming back soon!</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="imagediv"><img src="/media/app1/images/re7.jpg" alt="Food 1"></div>
+            <div class="name">
+                <h3>Emily Smith</h3>
+            </div>
+            <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star nchecked"></span>
+                <span class="fa fa-star nchecked"></span>
+            </div>
+            <div class="review">
+                <p>Had an amazing dining experie.The food was delicious,the ambiance was cozy,and
+                    the service.Definitely coming back soon!</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="fk f1" id="follow">
+            <div class="one">
+                <h3 style="color:rgb(235, 74, 74);">FoodZone Restaurant</h3>
+                <div class="location">
+                    <p>Plot No. 87, 3rd Floor, Surya Towers,</p>
+                    <p>MG Road,Vijayawada,Andhra Pradesh,520002</p>
+                </div>
+                <div class="fus">
+                    <h3 style="color:rgb(235, 74, 74); padding-left: 4px; text-align: center;">Follow Us</h3>
+                    <div class="icons">
+                        <span style="padding: 1px; font-size: 25px; cursor: pointer;transition: color 0.3s;margin: 3px;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='' "><i class="fa-brands fa-facebook"></i></span>
+                        <span style="padding: 1px; font-size: 25px; cursor: pointer;transition: color 0.3s;margin: 3px;" onmouseover="this.style.color='orange'" onmouseout="this.style.color='' "><i class="fa-brands fa-instagram"></i></span>
+                        <span style="padding: 1px; font-size: 25px; cursor: pointer;transition: color 0.3s;margin: 3px;" onmouseover="this.style.color='red'" onmouseout="this.style.color='' "><i class="fa-brands fa-youtube"></i></span>
+                        <span style="padding: 1px; font-size: 25px; cursor: pointer;transition: color 0.3s;margin: 3px;" onmouseover="this.style.color='skyblue'" onmouseout="this.style.color='' "><i class="fa-brands fa-square-x-twitter"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fk f2" id="openinghours">
+            <h3 style="color:rgb(235, 74, 74);">Opening Hours</h3>
+            <div class="time">
+                <div class="k">Mon - Fri: 8am - 8pm</div>
+                <div class="k">​Saturday: 9am - 7pm</div>
+                <div class="k"> ​Sunday: 9am - 8pm</div>
+            </div>
+        </div>
+        <div class="fk f3" id="newsletter">
+            <div>
+                <h4 style="color:rgb(235, 74, 74);">Subscribe to our newsletter for updates and special deals.</h4>
+            </div>
+            <div><label style="color:rgb(21, 197, 21);">Email</label></div>
+            <div class="lavs">
+                <input type="email" id="cvv" required>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </footer>
+    <div class="rights" style="text-align: center;">
+        <p>&copy; FoodZone Restaurant. All rights reserved.</p>
+    </div>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    // Use jQuery.noConflict() to isolate jQuery
+    var $jq3_6_0 = jQuery.noConflict(true);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<script>
+    let menu = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    }
+
+    window.onscroll = () => {
+        var nav = document.querySelector('header');
+
+        if (window.pageYOffset > 0) {
+            nav.classList.add("sticky")
+        }
+        else {
+            nav.classList.remove("sticky");
+        }
+    }
+    function toggleDropdown() {
+        var dropcurrent = document.getElementById("mydropdown");
+        if (dropcurrent.style.display == "block") {
+            dropcurrent.style.display = "none";
+        }
+        else {
+            dropcurrent.style.display = "block";
+        }
+    }
+
+    $(document).ready(function () {
+        $('#popcart').popover({
+            html: true,
+            content: "",
+        }).on('shown.bs.popover', function () {
+        });
+    });
+    $(function () { $('[data-toggle="popover"]').popover() })
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var cartItems = JSON.parse(localStorage.getItem('cart1'));
+        var popoverButton = document.getElementById('popcart');
+
+        function updatePopoverContent() {
+            var popContent = '';
+            if (cartItems) {
+                var itemCount = Object.keys(cartItems).length;
+                var index = 1;
+                for (var key in cartItems) {
+                    var item = cartItems[key];
+                    popContent += '<b>' + index + '.</b> ' + item[1] + ' Qty: ' + item[0] + '<br>';
+                    index++;
+                }
+                popContent += "<a href='checkout'><button class='lavda' id='checkout' style='background-color: orange; color: #fff; padding: 7.5px 9.5px; border: none; border-radius: 5px; font-size: 14px; cursor: pointer; transition: background-color 0.4s; text-align: center; outline: none; margin: 6px 65px;'>Checkout</button></a>";
+            } else {
+                popContent = 'Your cart is empty.';
+            }
+            popoverButton.setAttribute('data-content', popContent);
+            $(popoverButton).popover('show');
+        }
+        popoverButton.addEventListener('click', updatePopoverContent);
+    });
+
+    $(document).ready(function () {
+        $('.slider').slick({
+            slidesToShow: 4, 
+            slidesToScroll: 1, 
+            arrows: true, 
+            dots: true, 
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    });
+    $('.prev-button').click(function () {
+        $('.slider').slick('slickPrev');
+    });
+
+    $('.next-button').click(function () {
+        $('.slider').slick('slickNext');
+    });
+
+</script>

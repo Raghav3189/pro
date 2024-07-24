@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Sora:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Quicksand:wght@500&family=Sora:wght@600&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'app1/blog1.css' %}">
+
+<body>
+    <header>
+        <a href="home" class="logo">FoodZone</a>
+        <div class="navlis">
+            <ul class="navbar">
+                <li><a href="home">Home</a></li>
+                <li><a href="home#about">About</a></li>
+                <li><a href="blog">Blog</a></li>
+                <li><a href="contac">Contact</a></li>
+                <li><a href="feedback">Feedback</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown()"><i class="ri-user-fill"></i></a>
+                <div class="dropdown-content" id="mydropdown">
+                    <a href="login">login</a>
+                    <a href="logout">logout</a>
+                    <a href="signup">signin</a>
+                </div>
+            </div>
+        </div>
+        <div class="cartbutt">
+            <button type="button" class="btn btn-primary" id="popcart" data-placement="bottom" data-toggle="popover"
+                title="Cart Items" data-content=""><i class="fa fa-shopping-cart" style="font-size:17px;color:white"></i></button>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    <div class="heading1">Our Restaurant Blog</div>
+    <div class="conn">
+        <div class="con">
+            <div class="heading">Latest Posts</div>
+            {% for post in posts %}
+            {% if post.blog_category == "latest" %}
+            <div class="leftcon">
+                <div class="leftbox">
+                    <a style="text-decoration: none;"
+                        href="{% url 'post_detail' post.blog_id %}"> <img src="/media/{{post.blog_image}}" alt="img" style="border-radius: 10px;"></a>
+                </div>
+                <div class="rightbox">
+                    <div><a style="text-decoration: none; color: red;"
+                            href="{% url 'post_detail' post.blog_id %}">{{post.blog_title}}</a></div>
+                    <div style="color:rgb(105, 105, 105);font-size: 14px; margin-top: 10px;"><i
+                            class="fa-regular fa-calendar"></i> {{post.blog_time}}</div>
+                    <div style="color:rgb(105, 105, 105); font-size: 14px;margin-top: 10px;" id="blog-content">
+                        <a style="text-decoration: none; color:rgb(105, 105, 105);"
+                            href="{% url 'post_detail' post.blog_id %}">{{post.blog_content|slice:"0:140"}}.....</a></div>
+                    <div class="show">
+                        <div style="color:rgb(105, 105, 105);font-size: 14px;margin-top: 10px;"><img
+                                src="/media/{{post.blog_author_image}}" alt="img"
+                                style="height: 20px; width: 20px; border-radius: 50%;"><span
+                                style="color:rgb(105, 105, 105);font-size: 14px;"> {{post.blog_author}}</span></div>
+                        <div style="color:rgb(105, 105, 105);font-size: 14px;margin-top: 10px;"><i
+                                class="fa-regular fa-heart"></i> {{post.like_count}} likes</div>
+                        <div style="color:rgb(105, 105, 105);font-size: 14px;margin-top: 10px;"><i
+                                class="fa-regular fa-comment"></i> {{post.comment_count}} comments</div>
+
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="con1">
+            <div class="heading">Popular Posts</div>
+            {% for post in posts %}
+            {% if post.blog_category == "popular" %}
+            <div class="rightcon">
+                <div class="leftbox">
+                    <a style="text-decoration: none;"
+                        href="{% url 'post_detail' post.blog_id %}"> <img src="/media/{{post.blog_image}}" alt="img" style="border-radius: 10px;"></a>
+                </div>
+                <div class="rightbox">
+                    <a style="text-decoration: none;"
+                        href="{% url 'post_detail' post.blog_id %}">{{post.blog_title}}</a>
+                    <!-- <div id="blog-content">{{post.blog_content|slice:"0:70"}}....</div> -->
+                    <div class="show">
+                        <div style="color:rgb(105, 105, 105);font-size: 12px;margin-top: 10px;"><img src="/media/{{post.blog_author_image}}" alt="img" style="height: 20px; width: 20px; border-radius: 50%;"><span style="color:rgb(105, 105, 105);font-size: 14px;"> {{post.blog_author}}</span></div>
+                        <div style="color:rgb(105, 105, 105);font-size: 12px;margin-top: 10px;"><i
+                                class="fa-regular fa-heart"></i> {{post.like_count}} likes</div>
+                        <div style="color:rgb(105, 105, 105);font-size: 12px;margin-top: 10px;"><i
+                                class="fa-regular fa-comment"></i> {{post.comment_count}} comments</div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="newsletter" style="margin-bottom: 10px; border-bottom: 1px solid #ddd;">
+                <div class="heading">News Letter</div>
+                <p style="font-size: 14px;">Here, I focus on a range of items andfeatures that we use in life without giving them a second thought.</p>
+                <div class="lavs">
+                    <input type="email" id="cvv" required>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+            <div class="heading">Most Popular Posts</div>
+            {% for post in posts %}
+            {% if post.blog_category == "mostpopular" %}
+            <div class="rightcon">
+                <div class="leftbox">
+                    <a style="text-decoration: none;"
+                        href="{% url 'post_detail' post.blog_id %}"> <img src="/media/{{post.blog_image}}" alt="img" style="border-radius: 10px;"></a>
+                </div>
+                <div class="rightbox">
+                    <a style="text-decoration: none;"
+                        href="{% url 'post_detail' post.blog_id %}">{{post.blog_title}}</a>
+                    <!-- <div id="blog-content">{{post.blog_content|slice:"0:70"}}....</div> -->
+                    <div class="show">
+                        <div style="color:rgb(105, 105, 105);font-size: 12px;margin-top: 10px;"><img src="/media/{{post.blog_author_image}}" alt="img" style="height: 20px; width: 20px; border-radius: 50%;"><span style="color:rgb(105, 105, 105);font-size: 14px;"> {{post.blog_author}}</span></div>
+                        <div style="color:rgb(105, 105, 105);font-size: 12px;margin-top: 10px;"><i
+                                class="fa-regular fa-heart"></i> {{post.like_count}} likes</div>
+                        <div style="color:rgb(105, 105, 105);font-size: 12px;margin-top: 10px;"><i
+                                class="fa-regular fa-comment"></i> {{post.comment_count}} comments</div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="heading">Social Networks</div>
+            <div class="social" style="border-bottom: 1px solid #ddd;">
+                <div class="facebook"
+                    style="background-color: rgb(112, 112, 243); color: white; width: 100%; height: 40px;">
+                    <span><i class="fa-brands fa-facebook"></i></span><span>1000 Likes</span><span style="cursor: pointer;">Like Our Page</span>
+                </div>
+                <div class="facebook"
+                    style="background-color: orange; color: white;width: 100%; height: 40px;">
+                    <span><i class="fa-brands fa-instagram"></i></span><span>1000 followers</span><span style="cursor: pointer;">Follow Us</span>
+                </div>
+                <div class="facebook"
+                    style="background-color: red; color: white;width: 100%; height: 40px;">
+                    <span><i class="fa-brands fa-youtube"></i></span><span>1000 Subscibers</span><span style="cursor: pointer;">Subscibe</span>
+                </div>
+                <div class="facebook"
+                    style="background-color: rgb(61, 60, 60); color: white;width: 100%; height: 40px;">
+                    <span><i class="fa-brands fa-square-x-twitter"></i></span><span>1000 followers</span><span style="cursor: pointer;">Follow Us</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let menu = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    }
+
+    window.onscroll = () => {
+        var nav = document.querySelector('header');
+
+        if (window.pageYOffset > 0) {
+            nav.classList.add("sticky")
+        }
+        else {
+            nav.classList.remove("sticky");
+        }
+    }
+    function toggleDropdown() {
+        var dropcurrent = document.getElementById("mydropdown");
+        if (dropcurrent.style.display == "block") {
+            dropcurrent.style.display = "none";
+        }
+        else {
+            dropcurrent.style.display = "block";
+        }
+    }
+    $(document).ready(function () {
+        $('#popcart').popover({
+            html: true,
+            content: "",
+        }).on('shown.bs.popover', function () {
+        });
+    });
+    $(function () { $('[data-toggle="popover"]').popover() })
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var cartItems = JSON.parse(localStorage.getItem('cart1'));
+        var popoverButton = document.getElementById('popcart');
+
+        function updatePopoverContent() {
+            var popContent = '';
+            if (cartItems) {
+                var itemCount = Object.keys(cartItems).length;
+                var index = 1;
+                for (var key in cartItems) {
+                    var item = cartItems[key];
+                    popContent += '<b>' + index + '.</b> ' + item[1] + ' Qty: ' + item[0] + '<br>';
+                    index++;
+                }
+                popContent += "<a href='checkout'><button class='lavda' id='checkout' style='background-color: orange; color: #fff; padding: 7.5px 9.5px; border: none; border-radius: 5px; font-size: 14px; cursor: pointer; transition: background-color 0.4s; text-align: center; outline: none; margin: 6px 65px;'>Checkout</button></a>";
+            } else {
+                popContent = 'Your cart is empty.';
+            }
+            popoverButton.setAttribute('data-content', popContent);
+            $(popoverButton).popover('show');
+        }
+        popoverButton.addEventListener('click', updatePopoverContent);
+    });
+
+</script>

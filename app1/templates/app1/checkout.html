@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Sora:wght@600&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Quicksand:wght@500&family=Sora:wght@600&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'app1/checkoutt.css' %}">
+
+<body>
+    <header>
+        <a href="home" class="logo">FoodZone</a>
+        <div class="navlis">
+            <ul class="navbar">
+                <li><a href="home">Home</a></li>
+                <li><a href="home#about">About</a></li>
+                <li><a href="blog">Blog</a></li>
+                <li><a href="contac">Contact</a></li>
+                <li><a href="feedback">Feedback</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown()"><i class="ri-user-fill"></i></a>
+                <div class="dropdown-content" id="mydropdown">
+                    <a href="login">login</a>
+                    <a href="logout">logout</a>
+                    <a href="signup">signin</a>
+                </div>
+            </div>
+        </div>
+        <div class="cartbutt">
+            <button type="button" class="btn btn-primary" id="popcart" data-placement="bottom" data-toggle="popover"
+                title="Cart Items" data-content=""><i class="fa fa-shopping-cart" style="font-size:17px;color:white"></i></button>
+        </div>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    <div class="cheading">
+        <p>Checkout</p>
+    </div>
+    <div class="cartcontainer" id="cartItemsContainer">
+        <div class="hcart">
+            <h3>Your Cart</h3>
+        </div>
+        <div id="itemscontainer" class="itemcontainer">
+
+        </div>
+    </div>
+    <div class="allcontainer">
+        <div class="checkout-container">
+        <div class="hcart"><h2>Checkout</h2></div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="itemsJson" id="itemsJson">
+            <input type="hidden" name="amount" id="amount">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="country">City:</label>
+            <input type="text" id="address" name="city" required>
+    
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+    
+            <label for="expiration-date">Zip Code:</label>
+            <input type="text" id="expiration-date" name="zipcode"  required>
+    
+    
+            <label for="cvv">Phone Number:</label>
+            <input type="text" id="cvv" name="phone" required>
+    
+            <button type="submit">Place Order</button>
+        </form>
+        </div>
+</body>
+<script>
+    var headingsAdded = false;
+    let menu = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    }
+
+    window.onscroll = () => {
+        var nav = document.querySelector('header');
+
+        if (window.pageYOffset > 0) {
+            nav.classList.add("sticky")
+        }
+        else {
+            nav.classList.remove("sticky");
+        }
+    }
+    function toggleDropdown() {
+        var dropcurrent = document.getElementById("mydropdown");
+        if (dropcurrent.style.display == "block") {
+            dropcurrent.style.display = "none";
+        }
+        else {
+            dropcurrent.style.display = "block";
+        }
+    }
+    $(function () { $('[data-toggle="popover"]').popover() })
+
+    if (localStorage.getItem('cart1') == null) {
+        var cart = {};
+    }
+    else {
+        cart1 = JSON.parse(localStorage.getItem('cart1'));
+    }
+    console.log(cart1);
+    if ($.isEmptyObject(cart1)) {
+        $('#itemscontainer').append('<br>Your Cart is Empty Please Add Items And Come Back:)');
+    }
+    else {
+        var total = 0;
+        document.addEventListener("DOMContentLoaded", function () {
+            var cartContainer = document.getElementById('itemscontainer');
+            function generateCartHTML() {
+                var html = '<table class="tablecon">';
+                for (var key in cart1) {
+                    var item = cart1[key];
+                    var qty = item[0];
+                    var pri = item[2].slice(1,);
+                    var pric = pri * qty;
+                    total = total + pric;
+                    var price = '₹' + pric;
+                    console.log(total);
+                    if (!headingsAdded) {
+                        html += '<thead class="tableheading">';
+                        html += '<tr>';
+                        html += '<th class="hitem-image">FoodItem</th>';
+                        html += '<th class="hitem-name">ItemName</th>';
+                        html += '<th class="hitem-quantity">ItemQuantity</th>';
+                        html += '<th class="hitem-price">ItemPrice</th>';
+                        html += '</tr>';
+                        html += '</thead>';
+                        html += '<tbody>';
+                        headingsAdded = true;
+                    }
+                    html += '<tr class="cart-item">';
+                    html += '<td class="item-image">' + item[3] + '</td>';
+                    html += '<td class="item-name">' + item[1] + '</td>';
+                    html += '<td class="item-quantity">' + item[0] + '</td>';
+                    html += '<td class="item-price">' + item[2] + '</td>';
+                    html += '</tr>';
+                }
+                html += '<tr class="total-row">';
+                html += '<td colspan="3" class="total-label">Total Price:</td>';
+                html += '<td class="total-price">₹' + total + '</td>';
+                html += '</tr>';
+                html += '</tbody>';
+                html += '</table>';
+                html +='<div class="but">'
+                html += "<a href='order'><button class='lavda' >GoBacktoOrder</button></a>";
+                html +='</div>'
+                return html;
+            }
+
+            // Update the HTML content of the cart container
+            cartContainer.innerHTML = generateCartHTML();
+        });
+    }
+    var t="{{thank}}";
+if(t){
+    alert("Your Order Has Been Placed Sucessfully.Thanks For Ordering Food:)");
+    var cart2=cart1;
+    localStorage.clear();
+    var queryParams = '?cart2=' + encodeURIComponent(JSON.stringify(cart2));
+    document.location = "dashboard" + queryParams;
+}
+    $('#itemsJson').val(JSON.stringify(cart1));
+    $('#amount').val(total);
+</script>

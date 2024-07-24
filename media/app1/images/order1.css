@@ -1,0 +1,338 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    height: auto;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    color: #fff;
+    padding: 30px 100px;
+    z-index: 1;
+}
+
+.navbar.sticky{
+    padding: 12px 100px;
+    background: #fff;
+}
+
+.navbar .logo{
+    position: relative;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul li {
+    position: relative;
+    list-style: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar ul li .na{
+    position: relative;
+    margin: 0px 15px;
+    text-decoration: none;
+    color:#fff;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: 0.6s;
+    padding: 5px;
+    border-radius: 12px;
+}
+.navbar ul li .popcar{
+    padding: 8px;
+    width: 80px;
+    cursor: pointer;
+    border-radius: 12px;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #3498db;
+    color: #ffffff;
+    border: 2px solid #3498db;
+}
+.na:active,.na:hover{
+    background-color:orange;
+    transition: 0.5s;
+    position: absolute;
+}
+.banner {
+   /* border: 2px solid red;*/
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background: url('/images/tr.jpg') no-repeat center center/cover; 
+    background-size: cover; 
+    opacity: 0.89;
+}
+nav.sticky .logo, 
+nav.sticky ul li .na{
+    color: purple;
+} 
+.navbar ul li {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+}
+
+.navbar ul li .na {
+     /* color: #333;  */
+    text-decoration: none;
+     /* padding: 3px;  */
+    display: block;
+}
+
+.navbar ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    z-index: 1;
+    min-width: 120px;
+}
+
+.navbar ul li:hover ul {
+    display: block;
+    padding: 7px;
+}
+
+.navbar ul li ul li {
+    display: block;
+}
+
+.navbar ul li ul li .na {
+    color: #000;
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li ul li .na:hover {
+    background-color:green;
+    color: white;
+}
+.banner {
+    /* border: 2px solid red;*/
+     width: 100%;
+     height: 300px;
+     position: relative;
+     background: url('tr.jpg') no-repeat center center/cover; 
+     background-size: cover; 
+     opacity: 0.89;
+ }
+
+ .banner .title{
+    padding: 125px 557px 
+}
+.banner .title p{
+    color: #fff;
+    font-size: 50px;
+}
+nav.sticky .logo, 
+nav.sticky ul li a{
+    color: purple;
+}
+.con{
+    /* border: 2px red solid; */
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    height: 380px;
+    background: #f4f4f4;
+}
+.con .con1{
+    /* border: 2px yellow solid; */
+    margin: 20px;
+    width: 375px;
+    background: white;
+}
+.con .con1 .img{
+    /* border: 2px green solid; */
+    height: 137px;
+    margin: 10px;
+    margin-bottom: 2px;
+}
+.con .con1 .name{
+    /* border: 2px green solid; */
+    padding: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.con .con1 .price{
+    /* border: 2px green solid; */
+    padding: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.con .con1 .desc{
+    /* border: 2px green solid; */
+    padding: 0px;
+    margin: 2px 11px;
+    height: 64px;
+}
+.con .con1 .addtocart{
+    /* border: 2px green solid; */
+    padding: 4px;
+    margin: 0px;
+    text-align: center;
+    margin-top: 4px;
+}
+.con .con1 .addtocart .but{
+    padding: 6px;
+    width: 90px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.con .con1 .addtocart .but
+{
+    background-color: #ff8c00;
+    color: #ffffff;
+    border: 2px solid #ff8c00;
+}
+.con .con1 .addtocart .but:hover{
+    background-color: #e07e00;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.conos{
+    /* border: 2px red solid; */
+    margin: 20px;
+    padding:10px 0px;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 80%;
+    margin-top: 40px;
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    height: 50vh; /* Half of the viewport height */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.image-container,
+.details-container {
+    width: 50%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
+
+.details-container {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.details-container h3 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.details-container p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.special-offer {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff8c00;
+    margin-bottom: 10px;
+}
+
+.btn-learn-more {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-learn-more:hover {
+    background-color: #0056b3;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+.order-now-button {
+    background-color: green;
+    color: #fff;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+    margin-top: 20px;
+}
+
+.order-now-button:hover {
+    background-color: rgb(10, 94, 10);
+}

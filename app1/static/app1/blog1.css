@@ -1,0 +1,414 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Quicksand', sans-serif;
+    /* font-family: 'Sora', sans-serif; */
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    height: auto;
+    background-color: #f9f9f9;
+}
+
+header.sticky {
+    background-color: white;
+    /* padding: 12px 12%; */
+    color: black;
+}
+
+header.sticky .navbar a,
+header.sticky .logo,
+header.sticky .main .dropdown .ri-user-fill {
+    color: black;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 15px 12%;
+    transition: all 0.50s ease;
+    background-color: white;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: black;
+    transition: all 0.50s ease;
+}
+
+.navlis .navbar {
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.navlis .navbar a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0px;
+    margin: 0px 15px;
+    transition: all 0.50s ease;
+    color: black;
+}
+
+.navlis .navbar a:hover,
+.logo:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+.main {
+    display: flex;
+}
+
+#menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.ri-user-fill {
+    font-size: 25px;
+    color: black;
+}
+
+.main .dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.main .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    /* box-shadow: opx 8px 16px 0px rgba(0,0,0,0.2); */
+    width: 100px;
+    right: 0;
+    transition: all 0.50s ease;
+}
+
+.main .dropdown .dropdown-content a {
+    display: block;
+    color: black;
+    padding: 5px 7px;
+    text-align: center;
+    transition: all 0.50s ease;
+}
+
+.main .dropdown .dropdown-content a:hover {
+    color: rgb(112, 112, 243);
+    text-decoration: none;
+}
+
+
+@media (max-width:890px) {
+    header {
+        padding: 12px 12%;
+    }
+
+    .navbar a {
+        padding: 5px 0;
+        margin: 0 20px;
+        color: black;
+    }
+}
+
+@media (max-width:1104px) {
+    #menu-icon {
+        display: block;
+        padding-left: 10px;
+        color: black;
+        margin-bottom: 0px;
+    }
+
+    header.sticky {
+        background: white;
+        /* padding: 12px 2%; */
+        color: black;
+    }
+
+    header.sticky #menu-icon {
+        color: black;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 160px;
+        height: auto;
+        background-color: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all 0.50s ease;
+    }
+
+    .navlis .navbar a {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: black;
+    }
+
+    .navbar a:hover {
+        color: blue;
+    }
+
+    .navbar.open {
+        right: 2%;
+    }
+}
+
+.conn{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-evenly;
+    padding: 0px 40px;
+}
+
+.conn .con{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-right: 40px;
+}
+
+.conn .con1{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-evenly;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.conn .con .leftcon,.rightcon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.conn .con1 .rightcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px 0px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.conn .con .leftcon .leftbox img{
+    height: 200px;
+    width: 300px;
+    margin-right: 20px;
+}
+
+
+.conn .con1 .rightcon .leftbox img{
+    height: 80px;
+    width: 110px;
+    margin-right: 10px;
+    border-radius: 15px;
+}
+
+.conn .con1 .rightcon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+    font-size: 13px;
+}
+
+.conn .con .leftcon .rightbox .show{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.conn .con1 .rightcon .rightbox .show{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.conn .con .heading{
+    background-color: red;
+    color: white;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+.conn .con1 .heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: red;
+    color: white;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+.conn .con1 .social .facebook{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.conn .con1 .social .facebook span{
+    padding:27px;
+}
+
+.conn .con1 .newsletter input,
+select {
+    width: 70%;
+    padding: 7px;
+    margin-bottom: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    margin-top: 1px;
+    margin-bottom: 10px;
+}
+
+
+
+.conn .con1 .newsletter input:focus,
+select:focus {
+    border-color: #ff0000;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+
+
+.conn .con1 .newsletter .lavs button {
+    padding: 7px 7px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    text-align: center;
+    outline: none;
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+.conn .con1 .newsletter .lavs button:hover {
+    background-color: red;
+    color: white;
+}
+/* 
+@media(max-width:1190px){
+    .conn{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media(max-width:760px){
+    .conn .con .leftcon{
+        flex-direction: column;
+    }
+    .conn .con .leftcon .rightbox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+} */
+
+@media(max-width: 760px) {
+    .conn {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conn .con,
+    .conn .con1 {
+        width: auto; /* Set width to auto to allow content to adjust */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media(max-width: 1190px) {
+    .conn .con .leftcon,
+    .conn .con1 .rightcon {
+        flex-direction: column; /* Set flex-direction to column for smaller screens */
+        align-items: center; /* Center align items */
+    }
+
+    .conn .con .leftcon .rightbox,
+    .conn .con1 .rightcon .leftbox,
+    .conn .con1 .rightcon .rightbox {
+        margin-right: 0; /* Remove right margin for smaller screens */
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+    }
+    .conn .con1 .social .facebook span{
+        padding:11px;
+    }
+}
+
+.heading1{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: mediumpurple;
+    color: white;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+    font-size: larger;
+    border-radius: 7px;
+    margin-top: 88px;
+    margin-bottom: 20px;
+}
